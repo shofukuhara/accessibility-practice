@@ -1,0 +1,62 @@
+---
+import Base from "../layouts/Base.astro";
+import AssetsImage from "../components/common/AssetsImage.astro";
+import AssetsPicture from "../components/common/AssetsPicture.astro";
+import RoundLink from "../components/ui/RoundLink.astro";
+import Picture from "../components/common/Picture.astro";
+import RoundedLink from "../components/ui/RoundLink.astro";
+---
+
+<Base pageMeta="home" pageData="home">
+  <!-- body内の要素 -->
+  <main class="home_contents">
+    <h1 class="home_title">Accessibility Practice</h1>
+    <ul class="home_list">
+      <li class="home_item">
+        <RoundLink
+          href="/accessibility-01/"
+          title="01. アクセシブルな見出しの構造"
+        />
+      </li>
+    </ul>
+  </main>
+</Base>
+
+<style lang="scss">
+  .home_contents {
+    margin-right: auto;
+    margin-left: auto;
+    @include media(sp) {
+      padding-top: sp_rem(40);
+      width: sp_rem(345);
+    }
+    @include media(pc) {
+      padding-top: pc_rem(80);
+      width: pc_rem(1000);
+    }
+    > .home_title {
+      color: var(--blue-01);
+      text-align: center;
+      letter-spacing: 0.04em;
+      @include font-Bold;
+      @include media(sp) {
+        font-size: sp_rem(28);
+      }
+      @include media(pc) {
+        font-size: pc_rem(40);
+      }
+    }
+    > .home_list {
+      display: flex;
+      flex-direction: column;
+      @include media(sp) {
+        margin-top: sp_rem(40);
+        row-gap: sp_rem(16);
+      }
+      @include media(pc) {
+        margin-top: pc_rem(80);
+        row-gap: pc_rem(16);
+      }
+    }
+  }
+</style>

@@ -1,0 +1,18 @@
+// フォント
+@mixin font-Regular {
+  font-family: var(--font);
+  font-weight: 400;
+  font-style: normal;
+}
+
+@mixin font-Medium {
+  font-family: var(--font);
+  font-weight: 500;
+  font-style: normal;
+}
+
+@mixin font-Bold {
+  font-family: var(--font);
+  font-weight: 700;
+  font-style: normal;
+}

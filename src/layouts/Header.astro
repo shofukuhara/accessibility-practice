@@ -1,0 +1,39 @@
+---
+
+---
+
+<header class="header">
+  <a href="/" class="header__link">一覧に戻る</a>
+</header>
+
+<style lang="scss">
+  .header {
+    position: fixed;
+    width: fit-content;
+    background-color: var(--blue-02);
+    border-radius: calc(infinity * 1px);
+    @include media(sp) {
+      bottom: sp_rem(8);
+      right: 0;
+      left: 0;
+      margin: auto;
+    }
+    @include media(pc) {
+      top: pc_rem(40);
+      right: pc_rem(40);
+    }
+    > .header__link {
+      color: var(--blue-01);
+      line-height: 1;
+      display: block;
+      @include media(sp) {
+        font-size: sp_rem(12);
+        padding: sp_rem(8) sp_rem(40);
+      }
+      @include media(pc) {
+        font-size: pc_rem(18);
+        padding: pc_rem(8) pc_rem(40);
+      }
+    }
+  }
+</style>

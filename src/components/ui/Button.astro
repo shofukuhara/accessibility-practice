@@ -1,0 +1,44 @@
+---
+type Props = {
+  href: string;
+  target?: string;
+  className?: string;
+  style?: string;
+  text: string;
+};
+
+const {
+  href,
+  target = "",
+  className = "",
+  style = "",
+  text,
+  ...data
+}: Props = Astro.props;
+---
+
+<a
+  href={href}
+  target={target || undefined}
+  class={`c-button ${className}`}
+  style={style || undefined}
+  {...data}
+>
+  <span class="c-button_text" set:html={text} />
+</a>
+
+<style lang="scss" is:global>
+  .c-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @include media(pc) {
+      width: pc_rem(320);
+      height: pc_rem(48);
+      background-color: #000;
+    }
+    .c-button_text {
+      color: #fff;
+    }
+  }
+</style>

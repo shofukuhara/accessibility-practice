@@ -1,0 +1,22 @@
+---
+import "../assets/css/index.scss";
+import Meta from "../config/Meta.astro";
+const { pageData } = Astro.props;
+---
+
+<!doctype html>
+<html lang="ja">
+  <head>
+    <Meta pageMeta={Astro.props.pageMeta} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body data-page={pageData} data-os="" data-browser="" data-device="">
+    <slot />
+    <script src="../assets/js/index.js"></script>
+  </body>
+</html>

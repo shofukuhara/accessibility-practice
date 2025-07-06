@@ -1,0 +1,58 @@
+---
+type Props = {
+  href: string;
+  target?: string;
+  className?: string;
+  style?: string;
+  title: string;
+};
+
+const {
+  href,
+  target = "",
+  className = "",
+  style = "",
+  title,
+  ...data
+}: Props = Astro.props;
+---
+
+<a
+  href={href}
+  target={target || undefined}
+  class={`roundLink ${className}`}
+  style={style || undefined}
+  {...data}
+>
+  <span class="roundLink__title" set:html={title} />
+</a>
+
+<style lang="scss" is:global>
+  .roundLink {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 100%;
+    background-color: var(--blue-02);
+    @include media(sp) {
+      border-radius: sp_rem(20);
+      padding: sp_rem(24);
+    }
+    @include media(pc) {
+      border-radius: pc_rem(20);
+      padding: pc_rem(32);
+    }
+    .roundLink__title {
+      color: var(--blue-01);
+      @include font-Medium;
+      @include media(sp) {
+        font-size: sp_rem(16);
+        line-height: 1;
+      }
+      @include media(pc) {
+        font-size: pc_rem(24);
+        line-height: 1;
+      }
+    }
+  }
+</style>

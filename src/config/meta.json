@@ -1,0 +1,35 @@
+{
+  "default": {
+    "title": "サイト名",
+    "description": "デフォルトの説明",
+    "keywords": "サイト,デフォルト",
+    "og": {
+      "url": "https://example.com",
+      "title": "サイト名",
+      "description": "デフォルトの説明",
+      "image": "/images/default-og.jpg"
+    }
+  },
+  "home": {
+    "title": "ホーム",
+    "description": "ホームページの説明",
+    "keywords": "ホーム,サイト",
+    "og": {
+      "url": "https://example.com/home",
+      "title": "ホームページ",
+      "description": "このサイトのホームページです。",
+      "image": "/images/home-og.jpg"
+    }
+  },
+  "sub": {
+    "title": "sub",
+    "description": "このサイトについての説明",
+    "keywords": "sub,サイト情報",
+    "og": {
+      "url": "https://example.com/sub",
+      "title": "subページ",
+      "description": "このサイトのsubページです。",
+      "image": "/images/sub-og.jpg"
+    }
+  }
+}

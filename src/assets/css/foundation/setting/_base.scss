@@ -1,0 +1,34 @@
+@use "../global/index.scss" as *;
+
+html {
+  @include media(sp) {
+    font-size: calc(var(--vw) / var(--base-rem-sp));
+  }
+  @include media(pc) {
+    font-size: calc(var(--vw) / var(--base-rem-pc));
+  }
+}
+
+body {
+  font-feature-settings: "palt";
+  -webkit-font-smoothing: antialiased;
+  background-color: var(--whitw-02);
+}
+
+.pc-only {
+  @include media(sp) {
+    display: none !important;
+  }
+  @include media(pc) {
+    display: block;
+  }
+}
+
+.sp-only {
+  @include media(sp) {
+    display: block;
+  }
+  @include media(pc) {
+    display: none !important;
+  }
+}
