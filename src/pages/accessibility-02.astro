@@ -1,0 +1,221 @@
+---
+import Base from "../layouts/Base.astro";
+import Header from "../layouts/Header.astro";
+import AssetsImage from "../components/common/AssetsImage.astro";
+import AssetsPicture from "../components/common/AssetsPicture.astro";
+import RoundLink from "../components/ui/RoundLink.astro";
+import Picture from "../components/common/Picture.astro";
+import RoundedLink from "../components/ui/RoundLink.astro";
+---
+
+<Base pageMeta="page" pageData="page">
+  <!-- body内の要素 -->
+  <Header />
+  <main class="page_contents">
+    <h1 class="page_title">02. アクセシブルなアコーディオンの実装</h1>
+
+    <div class="page_wrap">
+      <section class="page_section">
+        <article class="page_article">
+          <h2 class="page_title_02">アクセシブルなアコーディオンとは？</h2>
+          <p class="page_text">
+            アクセシブルなアコーディオンとは、誰もが安心して利用できる開閉式のUIコンポーネントのことです。マウス操作だけでなく、キーボードやスクリーンリーダーでも正しく操作・理解できるよう、セマンティックなHTMLやARIA属性を使って実装します。
+          </p>
+        </article>
+      </section>
+      <section class="page_section">
+        <article class="page_article">
+          <h2 class="page_title_02">OKな例</h2>
+          <div class="page_block">
+            <details class="page_details" name="accordion">
+              <summary class="page_summary">
+                details・summaryで作ったアコーディオン
+              </summary>
+              <p class="page_text">中身</p>
+            </details>
+          </div>
+
+          <!-- <div class="page_col">
+            <div class="page_block">
+              <div class="page_box"></div>
+              <h3 class="page_title_03">h3の使い所</h3>
+              <p class="page_text">
+                h3はh2の下層にあたる小見出しとして使用されます。例えば、ひとつのトピックの中に複数のサブテーマがある場合、それらをh3で整理すると読みやすくなります。
+              </p>
+            </div>
+
+            <div class="page_block">
+              <div class="page_box"></div>
+              <h3 class="page_title_03">h3を使った整理術</h3>
+              <p class="page_text">
+                過剰に階層化するのは避けつつ、必要に応じてh3を用いて情報を整理しましょう。これにより、ページ全体が論理的に構成され、視覚的にもアクセシブルになります。
+              </p>
+            </div>
+          </div> -->
+        </article>
+      </section>
+      <section class="page_section">
+        <article class="page_article">
+          <h2 class="page_title_02">NGな例</h2>
+          <div class="page_block">
+            <details class="page_details" name="accordion">
+              <summary class="page_summary">アコーディオン</summary>
+              <p class="page_text">中身</p>
+            </details>
+          </div>
+
+          <!-- <div class="page_col">
+            <div class="page_block">
+              <div class="page_box"></div>
+              <h3 class="page_title_03">h3の使い所</h3>
+              <p class="page_text">
+                h3はh2の下層にあたる小見出しとして使用されます。例えば、ひとつのトピックの中に複数のサブテーマがある場合、それらをh3で整理すると読みやすくなります。
+              </p>
+            </div>
+
+            <div class="page_block">
+              <div class="page_box"></div>
+              <h3 class="page_title_03">h3を使った整理術</h3>
+              <p class="page_text">
+                過剰に階層化するのは避けつつ、必要に応じてh3を用いて情報を整理しましょう。これにより、ページ全体が論理的に構成され、視覚的にもアクセシブルになります。
+              </p>
+            </div>
+          </div> -->
+        </article>
+      </section>
+
+      <section class="page_section">
+        <article class="page_article">
+          <h2 class="page_title_02">まとめ</h2>
+        </article>
+      </section>
+    </div>
+  </main>
+</Base>
+
+<style lang="scss">
+  .page_contents {
+    margin-right: auto;
+    margin-left: auto;
+    @include media(sp) {
+      padding-top: sp_rem(40);
+      padding-bottom: sp_rem(40);
+      width: sp_rem(345);
+    }
+    @include media(pc) {
+      padding-top: pc_rem(80);
+      padding-bottom: pc_rem(80);
+      width: pc_rem(1000);
+    }
+    > .page_title {
+      color: var(--blue-01);
+      text-align: center;
+      letter-spacing: 0.04em;
+      @include font-Bold;
+      @include media(sp) {
+        font-size: sp_rem(32);
+      }
+      @include media(pc) {
+        font-size: pc_rem(40);
+      }
+    }
+    > .page_wrap {
+      display: flex;
+      flex-direction: column;
+      @include media(sp) {
+        margin-top: sp_rem(40);
+        row-gap: sp_rem(40);
+      }
+      @include media(pc) {
+        margin-top: pc_rem(80);
+        row-gap: pc_rem(80);
+      }
+      > .page_section {
+        > .page_article {
+          .page_title_02 {
+            @include font-Bold;
+            @include media(sp) {
+              font-size: sp_rem(26);
+            }
+            @include media(pc) {
+              font-size: pc_rem(32);
+            }
+          }
+          .page_block {
+            @include media(pc) {
+              margin-top: pc_rem(24);
+            }
+            .page_details {
+              background-color: var(--whitw-01);
+              border: 1px solid var(--blue-02);
+              @media (any-hover: hover) {
+                &:hover {
+                  cursor: pointer;
+                }
+              }
+              .page_summary {
+                color: var(--blue-01);
+                display: block;
+                list-style: none;
+                @include font-Bold;
+                @include media(sp) {
+                  font-size: sp_rem(12);
+                  padding: sp_rem(24);
+                }
+                @include media(pc) {
+                  font-size: pc_rem(18);
+                  padding: pc_rem(24);
+                }
+                &::-webkit-details-marker {
+                  display: none;
+                }
+              }
+            }
+          }
+          .page_text {
+            @include font-Regular;
+            @include media(sp) {
+              font-size: sp_rem(12);
+              margin-top: sp_rem(24);
+            }
+            @include media(pc) {
+              font-size: pc_rem(18);
+              margin-top: pc_rem(24);
+            }
+          }
+          .page_title_03 {
+            @include font-Bold;
+            @include media(sp) {
+              font-size: sp_rem(26);
+              margin-top: sp_rem(8);
+            }
+            @include media(pc) {
+              font-size: pc_rem(26);
+              margin-top: pc_rem(8);
+            }
+          }
+          > .page_col {
+            display: grid;
+            @include media(sp) {
+              row-gap: sp_rem(40);
+              margin-top: sp_rem(24);
+              grid-template-columns: repeat(1, 1fr);
+            }
+            @include media(pc) {
+              column-gap: pc_rem(40);
+              margin-top: pc_rem(24);
+              grid-template-columns: repeat(2, 1fr);
+            }
+            > .page_block {
+              > .page_box {
+                width: 100%;
+                aspect-ratio: 16/ 9;
+                background-color: var(--blue-02);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+</style>
