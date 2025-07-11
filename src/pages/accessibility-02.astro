@@ -30,40 +30,30 @@ import RoundedLink from "../components/ui/RoundLink.astro";
             <details class="page_details" name="accordion">
               <summary class="page_summary">
                 details・summaryで作ったアコーディオン
+                <span class="page_icon"></span>
               </summary>
               <p class="page_text">中身</p>
             </details>
           </div>
-
-          <!-- <div class="page_col">
-            <div class="page_block">
-              <div class="page_box"></div>
-              <h3 class="page_title_03">h3の使い所</h3>
-              <p class="page_text">
-                h3はh2の下層にあたる小見出しとして使用されます。例えば、ひとつのトピックの中に複数のサブテーマがある場合、それらをh3で整理すると読みやすくなります。
-              </p>
-            </div>
-
-            <div class="page_block">
-              <div class="page_box"></div>
-              <h3 class="page_title_03">h3を使った整理術</h3>
-              <p class="page_text">
-                過剰に階層化するのは避けつつ、必要に応じてh3を用いて情報を整理しましょう。これにより、ページ全体が論理的に構成され、視覚的にもアクセシブルになります。
-              </p>
-            </div>
-          </div> -->
         </article>
       </section>
       <section class="page_section">
         <article class="page_article">
           <h2 class="page_title_02">NGな例</h2>
           <div class="page_block">
-            <details class="page_details" name="accordion">
-              <summary class="page_summary">アコーディオン</summary>
-              <p class="page_text">中身</p>
-            </details>
+            <div class="page_details" data-ng-accordion="close">
+              <div class="page_summary">
+                divで作ったアコーディオン<span class="page_icon"></span>
+              </div>
+              <div
+                class="page_wrap"
+                data-ng-text
+                style="overflow: hidden;height:0;"
+              >
+                <p class="page_text">中身</p>
+              </div>
+            </div>
           </div>
-
           <!-- <div class="page_col">
             <div class="page_block">
               <div class="page_box"></div>
@@ -147,7 +137,6 @@ import RoundedLink from "../components/ui/RoundLink.astro";
             }
             .page_details {
               background-color: var(--whitw-01);
-              border: 1px solid var(--blue-02);
               @media (any-hover: hover) {
                 &:hover {
                   cursor: pointer;
@@ -157,6 +146,9 @@ import RoundedLink from "../components/ui/RoundLink.astro";
                 color: var(--blue-01);
                 display: block;
                 list-style: none;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
                 @include font-Bold;
                 @include media(sp) {
                   font-size: sp_rem(12);
@@ -165,14 +157,51 @@ import RoundedLink from "../components/ui/RoundLink.astro";
                 @include media(pc) {
                   font-size: pc_rem(18);
                   padding: pc_rem(24);
+                  border: 1px solid var(--blue-02);
                 }
                 &::-webkit-details-marker {
                   display: none;
                 }
+                .page_icon {
+                  display: block;
+                  position: relative;
+                  transform-origin: center 43%;
+                  transition: transform 0.4s;
+                  /* アイコンのバーのスタイル */
+                  @include media(pc) {
+                    width: pc_rem(24);
+                  }
+                  &::before,
+                  &::after {
+                    content: "";
+                    position: absolute;
+                    display: block;
+                    background-color: var(--blue-01);
+                    @include media(pc) {
+                      width: pc_rem(15);
+                      height: pc_rem(3);
+                    }
+                  }
+                  &::before {
+                    left: 0;
+                    transform: rotate(45deg);
+                  }
+                  &::after {
+                    right: 0;
+                    transform: rotate(-45deg);
+                  }
+                }
+              }
+              .page_text {
+                background-color: var(--blue-02);
+                @include media(pc) {
+                  font-size: pc_rem(18);
+                  padding: pc_rem(24);
+                }
               }
             }
           }
-          .page_text {
+          > .page_text {
             @include font-Regular;
             @include media(sp) {
               font-size: sp_rem(12);

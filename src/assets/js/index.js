@@ -1,10 +1,12 @@
 import { UpdateViewportSize } from "./utils/viewport-utils";
 import { UAParserUtils } from "./utils/utils-os";
+import { Accordion } from "./ui/accordion";
 
 // 共通処理格納
 const commonModules = {
   common: () => {
     new UAParserUtils().init();
+    new Accordion().init();
   },
 };
 
@@ -22,4 +24,3 @@ if (page) {
     pageModules[pageAttribute](); // 各ページの処理を実行
   }
 }
-
