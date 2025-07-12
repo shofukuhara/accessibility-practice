@@ -2,34 +2,43 @@ import { gsap } from "gsap";
 
 export class Accordion {
   constructor() {
-    this.ok = {
-      trigger: document.querySelector("[data-ok-trigger]"),
-      item: document.querySelector("[data-ok-accordion]"),
-      text: document.querySelector("[data-ok-text]"),
-      icon: document.querySelector("[data-ok-icon]"),
-    };
-
     this.IS_OPENED_CLASS = "is-opened";
+
+    this.targets = [
+      {
+        trigger: document.querySelector("[data-ok-trigger]"),
+        item: document.querySelector("[data-ok-accordion]"),
+        text: document.querySelector("[data-ok-text]"),
+        icon: document.querySelector("[data-ok-icon]"),
+      },
+      {
+        trigger: document.querySelector("[data-ng-trigger]"),
+        item: document.querySelector("[data-ng-accordion]"),
+        text: document.querySelector("[data-ng-text]"),
+        icon: document.querySelector("[data-ng-icon]"),
+      },
+    ];
   }
 
   init() {
-    const { trigger, item, text, icon } = this.ok;
+    this.targets.forEach(({ trigger, item, text, icon }) => {
 
-    trigger.addEventListener("click", (e) => {
-      e.preventDefault();
+      trigger.addEventListener("click", (e) => {
+        e.preventDefault();
 
-      const isOpened = item.classList.contains(this.IS_OPENED_CLASS);
+        const isOpened = item.classList.contains(this.IS_OPENED_CLASS);
 
-      if (isOpened) {
-        item.classList.remove(this.IS_OPENED_CLASS);
-        this._close(item, text);
-        gsap.set(icon, { rotate: 0 });
-      } else {
-        item.classList.add(this.IS_OPENED_CLASS);
-        item.setAttribute("open", "true");
-        this._open(text);
-        gsap.set(icon, { rotate: -180 });
-      }
+        if (isOpened) {
+          item.classList.remove(this.IS_OPENED_CLASS);
+          this._close(item, text);
+          gsap.set(icon, { rotate: 0 });
+        } else {
+          item.classList.add(this.IS_OPENED_CLASS);
+          item.setAttribute("open", "true");
+          this._open(text);
+          gsap.set(icon, { rotate: -180 });
+        }
+      });
     });
   }
 

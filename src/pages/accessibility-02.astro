@@ -36,13 +36,15 @@ import RoundedLink from "../components/ui/RoundLink.astro";
                 details・summaryで作ったアコーディオン
                 <span class="page_icon" data-ok-icon></span>
               </summary>
-              <p
-                class="page_text"
+              <div
+                class="page_wrap"
                 style="overflow: hidden;height:0;"
                 data-ok-text
               >
-                中身
-              </p>
+                <p class="page_text">
+                  キーボード操作対応、スクリーンリーダーにも内容が「開閉できるセクション」として伝わる
+                </p>
+              </div>
             </details>
           </div>
         </article>
@@ -52,7 +54,7 @@ import RoundedLink from "../components/ui/RoundLink.astro";
           <h2 class="page_title_02">NGな例</h2>
           <div class="page_block">
             <div class="page_details" data-ng-accordion="closed">
-              <div class="page_summary">
+              <div class="page_summary" data-ng-trigger>
                 divで作ったアコーディオン<span class="page_icon" data-ng-icon
                 ></span>
               </div>
