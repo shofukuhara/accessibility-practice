@@ -27,12 +27,22 @@ import RoundedLink from "../components/ui/RoundLink.astro";
         <article class="page_article">
           <h2 class="page_title_02">OKな例</h2>
           <div class="page_block">
-            <details class="page_details" name="accordion">
-              <summary class="page_summary">
+            <details
+              class="page_details"
+              name="accordion"
+              data-ok-accordion="closed"
+            >
+              <summary class="page_summary" data-ok-trigger>
                 details・summaryで作ったアコーディオン
-                <span class="page_icon"></span>
+                <span class="page_icon" data-ok-icon></span>
               </summary>
-              <p class="page_text">中身</p>
+              <p
+                class="page_text"
+                style="overflow: hidden;height:0;"
+                data-ok-text
+              >
+                中身
+              </p>
             </details>
           </div>
         </article>
@@ -41,9 +51,10 @@ import RoundedLink from "../components/ui/RoundLink.astro";
         <article class="page_article">
           <h2 class="page_title_02">NGな例</h2>
           <div class="page_block">
-            <div class="page_details" data-ng-accordion="close">
+            <div class="page_details" data-ng-accordion="closed">
               <div class="page_summary">
-                divで作ったアコーディオン<span class="page_icon"></span>
+                divで作ったアコーディオン<span class="page_icon" data-ng-icon
+                ></span>
               </div>
               <div
                 class="page_wrap"
