@@ -42,7 +42,9 @@ import RoundedLink from "../components/ui/RoundLink.astro";
                 data-ok-text
               >
                 <p class="page_text">
-                  キーボード操作対応、スクリーンリーダーにも内容が「開閉できるセクション」として伝わる
+                  キーボード操作に対応しており、TabキーやEnter/Spaceキーで開閉できます。<br
+                  />
+                  スクリーンリーダーにも「開閉できるセクション」として正しく伝わるため、視覚以外の手段でも理解しやすい構造になっています。
                 </p>
               </div>
             </details>
@@ -63,7 +65,12 @@ import RoundedLink from "../components/ui/RoundLink.astro";
                 data-ng-text
                 style="overflow: hidden;height:0;"
               >
-                <p class="page_text">中身</p>
+                <p class="page_text">
+                  キーボード操作には対応していません。<br />
+                  そのため、操作できるようにするには、開閉処理やフォーカス制御などをJavaScriptで自前で実装する必要があります。<br
+                  />
+                  また、セマンティックな意味を持たないため、スクリーンリーダーなどの支援技術にも内容が正しく伝わらない可能性があります。
+                </p>
               </div>
             </div>
           </div>
@@ -90,6 +97,14 @@ import RoundedLink from "../components/ui/RoundLink.astro";
       <section class="page_section">
         <article class="page_article">
           <h2 class="page_title_02">まとめ</h2>
+          <p class="page_text">
+            details / summary
+            を使えば、基本的なアクセシビリティ（キーボード操作やスクリーンリーダー対応）を標準で備えた簡潔な実装が可能です。<br
+            />
+            divタグだけで作るアコーディオンは、操作性や支援技術への配慮が不足しがちであり、正しく機能させるためにはJavaScriptやARIA属性を自前で実装する必要があります。<br
+            />
+            アクセシブルなWebを目指すうえで、「意味のあるタグを選び、誰もが操作できるように作ること」が重要です。(テキストはAIで生成してhtml・css・jsは自分で実装)
+          </p>
         </article>
       </section>
     </div>
