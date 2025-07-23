@@ -160,6 +160,9 @@ import RoundedLink from "../components/ui/RoundLink.astro";
             }
           }
           .page_block {
+            @include media(sp) {
+              margin-top: sp_rem(24);
+            }
             @include media(pc) {
               margin-top: pc_rem(24);
             }
@@ -181,11 +184,12 @@ import RoundedLink from "../components/ui/RoundLink.astro";
                 @include media(sp) {
                   font-size: sp_rem(12);
                   padding: sp_rem(24);
+                  border: sp_rem(1) solid var(--blue-02);
                 }
                 @include media(pc) {
                   font-size: pc_rem(18);
                   padding: pc_rem(24);
-                  border: 1px solid var(--blue-02);
+                  border: pc_rem(1) solid var(--blue-02);
                 }
                 &::-webkit-details-marker {
                   display: none;
@@ -196,6 +200,9 @@ import RoundedLink from "../components/ui/RoundLink.astro";
                   transform-origin: center 43%;
                   transition: transform 0.4s;
                   /* アイコンのバーのスタイル */
+                  @include media(sp) {
+                    width: sp_rem(24);
+                  }
                   @include media(pc) {
                     width: pc_rem(24);
                   }
@@ -205,6 +212,10 @@ import RoundedLink from "../components/ui/RoundLink.astro";
                     position: absolute;
                     display: block;
                     background-color: var(--blue-01);
+                    @include media(sp) {
+                      width: sp_rem(15);
+                      height: sp_rem(3);
+                    }
                     @include media(pc) {
                       width: pc_rem(15);
                       height: pc_rem(3);
@@ -222,6 +233,10 @@ import RoundedLink from "../components/ui/RoundLink.astro";
               }
               .page_text {
                 background-color: var(--blue-02);
+                @include media(sp) {
+                  font-size: sp_rem(12);
+                  padding: sp_rem(24);
+                }
                 @include media(pc) {
                   font-size: pc_rem(18);
                   padding: pc_rem(24);
