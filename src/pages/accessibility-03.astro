@@ -8,7 +8,7 @@ import Picture from "../components/common/Picture.astro";
 import RoundedLink from "../components/ui/RoundLink.astro";
 ---
 
-<Base pageMeta="page" pageData="page">
+<Base pageMeta="page" pageData="03">
   <!-- body内の要素 -->
   <Header />
   <main class="page_contents">
@@ -26,11 +26,48 @@ import RoundedLink from "../components/ui/RoundLink.astro";
         <article class="page_article">
           <h2 class="page_title_02">OKな例</h2>
           <div class="page_block">
-            <button class="page_button" tabindex="0">
+            <button
+              class="page_button"
+              tabindex="0"
+              type="button"
+              data-ok-button
+            >
               <span class="page_text">buttonタグで作られたボタン</span>
             </button>
             <p class="page_text">
               buttonタグは、デフォルトでキーボード操作に対応しています。Tabキーでフォーカスを移動し、EnterキーやSpaceキーでアクションを実行できます。
+            </p>
+          </div>
+        </article>
+      </section>
+      <section class="page_section">
+        <article class="page_article">
+          <h2 class="page_title_02">NGな例</h2>
+          <div class="page_block">
+            <div class="page_button" data-ok-button>
+              <span class="page_text">divタグで作られたボタン</span>
+            </div>
+            <p class="page_text">
+              divタグは、デフォルトではキーボード操作に対応していません。Tabキーでフォーカスを移動することができず、EnterキーやSpaceキーでアクションを実行することもできません。<br
+              />
+              フォーカス可能にするためには、tabindex属性を追加する必要がありますが、これはアクセシビリティの観点から推奨されません。代わりにbuttonタグを使用することが望ましいです。
+            </p>
+          </div>
+        </article>
+      </section>
+      <section class="page_section">
+        <article class="page_article">
+          <h2 class="page_title_02">
+            divタグで作られたボタン（フォーカス対応）
+          </h2>
+          <div class="page_block">
+            <div class="page_button" data-ng-button tabindex="0">
+              <span class="page_text">divタグで作られたボタン</span>
+            </div>
+            <p class="page_text">
+              この例では、divタグにtabindex="0"を追加してフォーカス可能にしていますが、キーボード操作に対応するためには、クリックイベントやキーボードイベントを手動で処理する必要があります。<br
+              />
+              そのため、アクセシビリティの観点からはbuttonタグを使用することが推奨されます。
             </p>
           </div>
         </article>
@@ -94,10 +131,14 @@ import RoundedLink from "../components/ui/RoundLink.astro";
                 margin-top: pc_rem(24);
               }
               > .page_button {
+                display: flex;
+                align-items: center;
+                justify-content: center;
                 @include media(pc) {
                   width: pc_rem(360);
                   height: pc_rem(80);
                   background-color: var(--blue-02);
+                  cursor: pointer;
                 }
                 .page_text {
                   color: var(--white-01);
