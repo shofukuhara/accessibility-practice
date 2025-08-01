@@ -44,7 +44,7 @@ import RoundedLink from "../components/ui/RoundLink.astro";
         <article class="page_article">
           <h2 class="page_title_02">NGな例</h2>
           <div class="page_block">
-            <div class="page_button" data-ok-button>
+            <div class="page_button" data-ng-button>
               <span class="page_text">divタグで作られたボタン</span>
             </div>
             <p class="page_text">
@@ -61,7 +61,12 @@ import RoundedLink from "../components/ui/RoundLink.astro";
             divタグで作られたボタン（フォーカス対応）
           </h2>
           <div class="page_block">
-            <div class="page_button" data-ng-button tabindex="0">
+            <div
+              class="page_button"
+              data-ok-custum-button
+              tabindex="0"
+              role="button"
+            >
               <span class="page_text">divタグで作られたボタン</span>
             </div>
             <p class="page_text">
